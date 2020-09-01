@@ -234,6 +234,9 @@ func NewClientFromRawClient(rawClient *vaultapi.Client, opts ...ClientOption) (*
 		opt.apply(o)
 	}
 
+	// Set logger
+	client.logger = o.logger
+
 	// Set URL if defined
 	if o.url != "" {
 		err := rawClient.SetAddress(o.url)
